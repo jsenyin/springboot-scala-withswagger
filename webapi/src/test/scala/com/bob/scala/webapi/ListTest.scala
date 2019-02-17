@@ -15,15 +15,15 @@ class ListTest {
 
   @Test
   def testStub(): Unit = {
-    val f = new File("/Users/bob/Works/enniu/JProject/fc-risk-dataapi")
+    val f = new File("/mnt/workspace/github/springboot-scala-withswagger")
     if (!f.isDirectory) {
       return
     }
-    val fd = depthScaner(f, "java")
+    val fd = depthScaner(f, "scala")
     import collection.JavaConverters._
     fd.asScala.foreach(println)
     println("*****-----" * 5)
-    val fw = widthScaner(f, "java")
+    val fw = widthScaner(f, "scala")
     fw.asScala.foreach(println)
   }
 
