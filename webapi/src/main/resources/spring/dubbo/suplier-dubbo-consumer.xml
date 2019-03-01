@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 供应商 -->
+	<dubbo:reference interface="com.nqtown.member.service.SupplierService" id="supplierService" />
+	<!-- 供应商联系信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.SupplierContactMessageService" id="supplierContactMessageService" />
+	<!-- 供应商合同 -->
+	<dubbo:reference interface="com.nqtown.member.service.SupplierContractService" id="supplierContractService" />
+	<!-- 公告 -->
+	<dubbo:reference interface="com.nqtown.member.service.ProclamationService" id="proclamationService" />
+	<!-- 供应商发布商品 -->
+    <dubbo:reference interface="com.nqtown.service.SupplierPublishSkuService" id="supplierPublishSkuService" />
+</beans>

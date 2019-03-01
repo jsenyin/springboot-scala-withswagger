@@ -1,9 +1,10 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="10 seconds">
 
-    <property name="LOG_HOME" value="/var/www/logs"/>
-
     <property name="SCALATOULLOGFILENAME" value="scalatoul"/>
+    <property name="LOG_HOME" value="/tmp/logs"/>
+    <property name="BASELOG_LOGGING_LEVEL" value="DEBUG"/>
+
 
     <!-- Simple file output -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -27,7 +28,7 @@
         </rollingPolicy>
 
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
+            <level>${BASELOG_LOGGING_LEVEL}</level>
         </filter>
         <!-- Safely log to the same file from multiple JVMs. Degrades performance! -->
         <prudent>true</prudent>
@@ -64,7 +65,7 @@
         </rollingPolicy>
 
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
+            <level>${BASELOG_LOGGING_LEVEL}</level>
         </filter>
         <!-- Safely log to the same file from multiple JVMs. Degrades performance! -->
         <prudent>true</prudent>
@@ -94,21 +95,26 @@
         </rollingPolicy>
 
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>DEBUG</level>
+            <level>${BASELOG_LOGGING_LEVEL}</level>
         </filter>
         <prudent>true</prudent>
     </appender>
 
-    <logger name="com.bob.scala.webapi.aop.ControllerLogAop" level="info">
+    <!--<logger name="com.bob.scala.webapi.aop.ControllerLogAop" level="${BASELOG_LOGGING_LEVEL}">
+        <appender-ref ref="RequestLog"/>
+    </logger>-->
+    <logger name="com.bob.*" level="${BASELOG_LOGGING_LEVEL}">
         <appender-ref ref="RequestLog"/>
     </logger>
 
-    <logger name="RetryLogger" level="info" additivity="true">
+    <logger name="RetryLogger" level="${BASELOG_LOGGING_LEVEL}" additivity="true">
         <appender-ref ref="RetryLogger"/>
     </logger>
 
-    <root level="info">
+    <root level="${BASELOG_LOGGING_LEVEL}">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="FILE"/>
     </root>
+
+
 </configuration>

@@ -15,7 +15,7 @@ class HelperService {
 
   def handlerInput(param: String): String = {
     LOGGER.info(s"handlerInputParm/${param} begin to process")
-    Thread.sleep(1000 * 2)
+    /*Thread.sleep(1000 * 2)*/
     val sb: StringBuilder = new StringBuilder(param)
     var value: String = MDC.get(MdcConstans.MDC_REMOTE_IP)
     if (!StringUtils.isEmpty(value)) {

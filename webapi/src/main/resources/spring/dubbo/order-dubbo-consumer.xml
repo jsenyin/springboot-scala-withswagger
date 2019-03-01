@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo 
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 订单服务 -->
+	<dubbo:reference interface="com.nqtown.order.service.ScmOMServiceWrapper" id="scmOMServiceWrapper" />
+	
+	<!-- 订单公共接口 -->
+	<dubbo:reference interface="com.nqtown.order.service.OrderCommonServiceWrapper" id="orderCommonServiceWrapper" />
+	
+	<dubbo:reference interface="com.nqtown.account.service.AccountOrderService" id="accountOrderService" />
+	<dubbo:reference interface="com.nqtown.account.service.AccountService" id="accountService" />
+	
+	<dubbo:reference interface="com.nqtown.order.service.OrderService" id="orderWrapService" group="wrap" timeout="10000"/>
+
+	
+    <!-- 云仓系统 -->
+    <!-- 订单服务:发货相关-->
+    <dubbo:reference interface="com.nqtown.order.service.SOrderManagedServiceWrapper" id="sOrderManagedServiceWrapper" />
+	
+
+	<dubbo:reference interface="com.nqtown.order.service.SupplierShipmentStatisticsService" id="supplierShipmentStatisticsService"  timeout="10000"/>
+	<dubbo:reference interface="com.nqtown.order.service.LogisticsTimeStatisticsService" id="logisticsTimeStatisticsService"  timeout="10000"/>
+	<dubbo:reference interface="com.nqtown.order.service.LogisticsStatisticsService" id="logisticsStatisticsService" />
+	<dubbo:reference interface="com.nqtown.order.service.Kd100LogisticsPushService" id="kd100LogisticsPushService" />
+	<dubbo:reference interface="com.nqtown.order.service.LogisticsCompanyKd100Service" id="logisticsCompanyKd100Service" />
+	<dubbo:reference interface="com.nqtown.order.service.LogisticsTimeoutService" id="logisticsTimeoutService" />
+
+	<!--external Order Service-->
+	<dubbo:reference interface="com.nqtown.order.service.ExternalOrderService" id="externalOrderService" />
+
+	<dubbo:reference interface="com.nqtown.order.service.PayInfoWXService" id="payInfoWXService" />
+
+	<!-- 佣金相关Service -->
+	<dubbo:reference interface="com.nqtown.order.service.CommissionService" id="commissionService" />
+
+	<!-- 神售订单相关Service -->
+	<dubbo:reference interface="com.nqtown.order.service.SsOrderService" id="ssOrderService" />
+	<dubbo:reference interface="com.nqtown.order.service.WxRefundService" id="wxRefundService"/>
+
+	<dubbo:reference interface="com.nqtown.si.service.DataFrameService" id="dataFrameService"/>
+
+
+</beans>

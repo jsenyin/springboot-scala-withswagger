@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	<!-- 联系信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberContactMessageService" id="memberContactMessageService" 
+	/>
+	<!-- 会员标签 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberTagService" id="memberTagService" 
+	/>
+	<!-- 用户反馈 -->
+	<dubbo:reference interface="com.nqtown.member.service.FeedbackService" id="feedbackService" 
+	/>
+	<!-- 店铺信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberShopService" id="memberShopService" 
+	/>
+	<!-- 会员信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberService" id="memberService"
+	/>
+	<!-- 会员日志 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberLogService" id="memberLogService" 
+	/>
+	<!-- 会员等级 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberLevelService" id="memberLevelService" 
+	/>
+	<!-- 收货客户 -->
+	<dubbo:reference interface="com.nqtown.member.service.CustomerService" id="customerService"
+	/>
+	<!-- 账户信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.SubscriberService" id="subscriberService" />
+	
+	<dubbo:reference interface="com.nqtown.member.service.MemberTurnVolumeService" id="memberTurnVolumeService" />
+	
+	<dubbo:reference interface="com.nqtown.member.service.ExternalMemberService" id="externalMemberService" />
+
+	<!-- 会员跟进 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberCheckService" id="memberCheckService"/>
+
+	<!-- 会员统计 -->
+	<dubbo:reference interface="com.nqtown.member.service.MemberStatisticsService" id="memberStatisticsService"/>
+
+	<!-- 神售会员信息 -->
+	<dubbo:reference interface="com.nqtown.member.service.SsUserService" id="ssUserService"/>
+
+</beans>

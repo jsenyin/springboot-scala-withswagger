@@ -9,6 +9,8 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.support.{BeanDefinitionBuilder, DefaultListableBeanFactory}
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
 import org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration
 import org.springframework.boot.{CommandLineRunner, SpringApplication}
 import org.springframework.context.annotation.ComponentScan
@@ -36,7 +38,7 @@ object ScalaApplication extends App {
   cp.getBean(classOf[ApplicationContextHolder])
 }
 
-@SpringBootApplication(exclude = Array(classOf[ThymeleafAutoConfiguration]))
+@SpringBootApplication(exclude = Array(classOf[ThymeleafAutoConfiguration], classOf[DataSourceAutoConfiguration], classOf[HibernateJpaAutoConfiguration]))
 @Controller
 @ComponentScan(value = Array(
   "com.bob.scala.*", "com.bob.java.webapi.*"

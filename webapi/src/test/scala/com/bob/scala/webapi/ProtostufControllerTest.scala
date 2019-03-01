@@ -20,7 +20,7 @@ import scala.collection.JavaConverters._
 /**
   * Created by bob on 17/2/7.
   */
-@RunWith(classOf[SpringRunner])
+//@RunWith(classOf[SpringRunner])
 @WebMvcTest(controllers = Array(classOf[ProtostufController]))
 class ProtostufControllerTest {
 

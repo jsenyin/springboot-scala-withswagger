@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:reference interface="com.nqtown.service.BrandService" id="brandService"/>
+    <dubbo:reference interface="com.nqtown.service.ItemCatService" id="itemCatService">
+        <dubbo:method name="saveItemCatOrder" timeout="5000"/>
+        <dubbo:method name="transferSkuToAnotherCategory" timeout="30000"/>
+    </dubbo:reference>
+    <dubbo:reference interface="com.nqtown.service.ItemTypeService" id="itemTypeService"/>
+    <dubbo:reference interface="com.nqtown.service.SkuService" id="skuService" />
+    <dubbo:reference interface="com.nqtown.service.PropService" id="propService"/>
+    <dubbo:reference interface="com.nqtown.service.PropValueService" id="propValueService"/>
+    <dubbo:reference interface="com.nqtown.service.SpecService" id="specService"/>
+    <dubbo:reference interface="com.nqtown.service.TagService" id="tagService"/>
+    <dubbo:reference interface="com.nqtown.service.BannerService" id="bannerService"/>
+    <dubbo:reference interface="com.nqtown.service.ArticleService" id="articleService"/>
+    <dubbo:reference interface="com.nqtown.service.ArticleCategoryService" id="articleCategoryService"/>
+    <dubbo:reference interface="com.nqtown.service.InventoryService" id="inventoryService"/>
+    <!--  <dubbo:reference interface="com.nqtown.service.LockRecordService" id="lockRecordService" url="dubbo://192.168.2.192:20880/com.nqtown.service.LockRecordService"/>
+    -->
+
+    <dubbo:reference interface="com.nqtown.service.LockRecordService" id="lockRecordService"/>
+
+    <dubbo:reference interface="com.nqtown.service.SupplierSkuService" id="supplierSkuService"/>
+    <!--  url="dubbo://192.168.2.149:20880/com.nqtown.service.InventoryService"/ -->
+
+    <!-- 地区管理 -->
+    <dubbo:reference interface="com.nqtown.service.AreaService" id="areaService"/>
+
+    <!-- 优惠券 -->
+    <dubbo:reference interface="com.nqtown.service.CouponService" id="couponService"/>
+
+    <!-- 优惠券商品 -->
+    <dubbo:reference interface="com.nqtown.service.CouponSkuService" id="couponSkuServiceImpl"/>
+
+    <!-- 优惠券会员 -->
+    <dubbo:reference interface="com.nqtown.service.CouponMemberService" id="couponMemberServiceImpl"/>
+
+    <dubbo:reference interface="com.nqtown.service.SupplierSpecService" id="supplierSpecService"/>
+
+    <dubbo:reference interface="com.nqtown.service.ActivityCategoryService" id="activityCategoryService"/>
+
+    <dubbo:reference interface="com.nqtown.service.ActivityCategorySkuService" id="activityCategorySkuService"/>
+    <dubbo:reference interface="com.nqtown.order.service.PersonliableStatisticsService"
+                     id="personliableStatisticsService"/>
+    <dubbo:reference interface="com.nqtown.service.SkuSolrService" id="skuSolrService" />
+    <dubbo:reference interface="com.nqtown.service.SkuSolrTableService" id="skuSolrTableService"/>
+
+    <dubbo:reference interface="com.nqtown.service.MaoriAuditService" id="maoriAuditServiceImpl"/>
+    <dubbo:reference interface="com.nqtown.service.SpecExportFileService" id="specExportFileServiceImpl"/>
+    <!-- 停售申請處理 -->
+    <dubbo:reference interface="com.nqtown.service.SupplierSkuStopSellService" id="supplierSkuStopSellService"/>
+    <!-- 商品规格导出 -->
+    <dubbo:reference interface="com.nqtown.service.ExportAllSpecService" id="exportAllSpecService" />
+
+    <dubbo:reference interface="com.nqtown.service.ActivityColumnService" id="activityColumnService"/>
+    <dubbo:reference interface="com.nqtown.service.ActivityColumnSkuService" id="activityColumnSkuService"/>
+    <dubbo:reference interface="com.nqtown.service.EverybodySearchService" id="everybodySearchService"/>
+    <!-- 国家 -->
+    <dubbo:reference interface="com.nqtown.service.CountryService" id="countryService"/>
+
+    <!-- 标签可售数量 -->
+    <dubbo:reference interface="com.nqtown.service.TagLimitCountService" id="tagLimitCountService"/>
+
+    <!-- 商品埋点 -->
+    <dubbo:reference interface="com.nqtown.service.BuriedPointSkuRecordService" id="buriedPointSkuRecordService"/>
+
+    <!-- 供应商商品导出 -->
+    <dubbo:reference interface="com.nqtown.service.ExportFileService" id="exportFileService"/>
+
+    <dubbo:reference interface="com.nqtown.service.LockSkuService" id="lockSkuService"/>
+    <!-- 公告 -->
+    <dubbo:reference interface="com.nqtown.service.AnnouncementService" id="announcementService"/>
+
+    <!-- 活动分类品牌 -->
+    <dubbo:reference interface="com.nqtown.service.ActivityCategoryBrandService" id="activityCategoryBrandService"/>
+
+    <!--营销抽奖活动-->
+    <dubbo:reference interface="com.nqtown.service.ActivityLotteryService" id="activityLotteryService"/>
+
+    <!-- 商品动销信息 -->
+    <dubbo:reference interface="com.nqtown.service.CommoditySalesInfoService" id="commoditySalesInfoService"/>
+
+    <!-- 商品点击信息 -->
+    <dubbo:reference interface="com.nqtown.service.CommodityClickInfoService" id="commodityClickInfoService"/>
+
+    <!--hotkey service-->
+    <dubbo:reference interface="com.nqtown.service.HotKeyTableService" id="hotKeyTableService"/>
+    <dubbo:reference interface="com.nqtown.service.HotKeySolrService" id="hotKeySolrService"/>
+
+</beans>
